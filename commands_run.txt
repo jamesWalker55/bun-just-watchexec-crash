@@ -1,0 +1,35 @@
+PS D:\Programming\temppppppp> code .
+PS D:\Programming\temppppppp> bun init
+bun init helps you get started with a minimal project and tries to guess sensible defaults. Press ^C anytime to quit
+
+package name (temppppppp):
+entry point (index.ts):
+
+Done! A package.json file was saved in the current directory.
+ + index.ts
+ + .gitignore
+ + tsconfig.json (for editor auto-complete)
+ + README.md
+
+To get started, run:
+  bun run index.ts
+PS D:\Programming\temppppppp> bun add typescript-to-lua
+bun add v1.1.18 (5a0b9352)
+warn: incorrect peer dependency "typescript@5.5.3"
+
+installed typescript-to-lua@1.26.1 with binaries:
+ - tstl
+
+13 packages installed [10.71s]
+PS D:\Programming\temppppppp> bun node_modules/typescript-to-lua/dist/tstl.js
+error TSTL: JSX is only supported with "react" jsx option.
+
+PS D:\Programming\temppppppp> watchexec -- bun node_modules/typescript-to-lua/dist/tstl.js
+[Running: bun node_modules/typescript-to-lua/dist/tstl.js]
+error TS18003: No inputs were found in config file '//?/D:/Programming/temppppppp/tsconfig.json'. Specified 'include' paths were '["**/*"]' and 'exclude' paths were '[]'.
+
+error TSTL: JSX is only supported with "react" jsx option.
+
+[Command exited with 1]
+[Waiting 10s for processes to exit before stopping...]
+PS D:\Programming\temppppppp>
