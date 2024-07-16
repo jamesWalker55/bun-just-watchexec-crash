@@ -10,7 +10,6 @@
   "devDependencies": {
     "typescript-to-lua": "^1.26.0",
     "typescript": "5.5.2",
-    "lua-types": "^2.13.1",
-    "json": "link:json.lua"
+    "lua-types": "^2.13.1"
   }
 }
