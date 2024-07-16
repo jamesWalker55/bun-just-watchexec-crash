@@ -1,2 +1,55 @@
-my_task:
-    bun node_modules/typescript-to-lua/dist/tstl.js --watch
+tstl := "node_modules/typescript-to-lua/dist/tstl.js"
+
+watch:
+    just copy-files
+    bun "{{tstl}}" --watch
+
+build:
+    just copy-files
+    bun "{{tstl}}"
+
+# Manually copy some files to dist
+# Written by ChatGPT
+copy-files:
+    #!bash
+
+    # == Copy package.json
+
+    mkdir -p dist
+    cp -f package.json dist/package.json
+
+    echo "package.json has been copied successfully."
+
+    # == Copy declaration files
+
+    # Define the source and destination directories
+    SRC_DIR="src"
+    DST_DIR="dist"
+
+    # Find all .d.ts files in the source directory
+    find "$SRC_DIR" -name '*.d.ts' | while read -r FILE; do
+        # Determine the relative path of the file
+        REL_PATH="${FILE#$SRC_DIR/}"
+
+        # Determine the destination directory
+        DST_PATH="$DST_DIR/$REL_PATH"
+
+        # Create the destination directory if it doesn't exist
+        mkdir -p "$(dirname "$DST_PATH")"
+
+        # Copy the file to the destination directory
+        cp -f "$FILE" "$DST_PATH"
+    done
+
+    echo "All .d.ts files have been copied successfully."
+
+    # == Copy plugin/ dir
+
+    # Define the source and destination directories
+    SRC_DIR="plugins"
+    DST_DIR="dist/"
+
+    # Copy the source directory to the destination directory
+    cp -rf "$SRC_DIR" "$DST_DIR"
+
+    echo "The plugins directory has been copied successfully."
